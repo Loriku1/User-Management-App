@@ -48,10 +48,10 @@ function UserDetails() {
 
   return (
     <div className="max-w-2xl mx-auto">
-      <div className="bg-white shadow-lg rounded-lg p-8">
-        <div className="flex justify-between items-center mb-6">
-          <h1 className="text-3xl font-bold">User Details</h1>
-          <Link to="/" className="text-blue-600 hover:underline">
+      <div className="bg-white shadow-sm ring-1 ring-gray-200 rounded-xl p-8">
+        <div className="flex flex-wrap gap-3 justify-between items-center mb-6">
+          <h1 className="text-3xl font-bold tracking-tight">User Details</h1>
+          <Link to="/" className="text-sm rounded-md border border-gray-200 bg-gray-50 px-3 py-1.5 hover:bg-gray-100">
             ← Back to List
           </Link>
         </div>
@@ -64,7 +64,7 @@ function UserDetails() {
                 type="text"
                 value={editForm.name}
                 onChange={(e) => setEditForm({ ...editForm, name: e.target.value })}
-                className="w-full px-4 py-2 border rounded-lg"
+                className="w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-200"
               />
             </div>
             <div>
@@ -73,7 +73,7 @@ function UserDetails() {
                 type="email"
                 value={editForm.email}
                 onChange={(e) => setEditForm({ ...editForm, email: e.target.value })}
-                className="w-full px-4 py-2 border rounded-lg"
+                className="w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-200"
               />
             </div>
             <div>
@@ -82,7 +82,7 @@ function UserDetails() {
                 type="text"
                 value={editForm.phone}
                 onChange={(e) => setEditForm({ ...editForm, phone: e.target.value })}
-                className="w-full px-4 py-2 border rounded-lg"
+                className="w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-200"
               />
             </div>
             <div>
@@ -91,19 +91,19 @@ function UserDetails() {
                 type="text"
                 value={editForm.website}
                 onChange={(e) => setEditForm({ ...editForm, website: e.target.value })}
-                className="w-full px-4 py-2 border rounded-lg"
+                className="w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-200"
               />
             </div>
             <div className="flex space-x-3">
               <button
                 onClick={handleSave}
-                className="bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700"
+                className="rounded-lg bg-green-600 px-6 py-2 text-white shadow hover:bg-green-700"
               >
                 Save
               </button>
               <button
                 onClick={handleCancel}
-                className="bg-gray-500 text-white px-6 py-2 rounded-lg hover:bg-gray-600"
+                className="rounded-lg bg-gray-500 px-6 py-2 text-white shadow hover:bg-gray-600"
               >
                 Cancel
               </button>
@@ -122,7 +122,7 @@ function UserDetails() {
             </div>
             <div>
               <span className="font-semibold">Website:</span>{' '}
-              <a href={`http://${user.website}`} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
+              <a href={`http://${user.website}`} target="_blank" rel="noopener noreferrer" className="text-blue-600 underline-offset-4 hover:underline">
                 {user.website}
               </a>
             </div>
@@ -135,7 +135,7 @@ function UserDetails() {
             </div>
             <button
               onClick={handleEdit}
-              className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 mt-4"
+              className="mt-4 rounded-lg bg-blue-600 px-6 py-2 text-white shadow hover:bg-blue-700"
             >
               Edit User
             </button>

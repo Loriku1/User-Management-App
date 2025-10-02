@@ -6,9 +6,9 @@ import Navbar from './components/navbar';
 
 function App() {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gradient-to-b from-white to-gray-50">
       <Navbar />
-      <div className="container mx-auto px-4 py-8">
+      <div className="container mx-auto px-4 py-10">
         <Routes>
           <Route path="/" element={<UserList />} />
           <Route path="/user/:id" element={<UserDetails />} />
