@@ -2,7 +2,7 @@ import { Routes, Route } from 'react-router-dom';
 import UserList from './components/UserList';
 import UserDetails from './components/UserDetails';
 import AddUser from './components/AddUser';
-import Navbar from './components/Navbar';
+import Navbar from './components/navbar';
 
 function App() {
   return (
