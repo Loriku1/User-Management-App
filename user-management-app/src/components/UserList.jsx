@@ -9,25 +9,34 @@ function UserList() {
     const [searchTerm, setSearchTerm] = useState('');
     const [sortConfig, setSortConfig] = useState({ key: null, direction: 'asc' });
 
+   
+
     useEffect(() => {
-        // Only fetch if we don't have users yet
-        if (users.length === 0) {
-            fetchUsers();
-        }
-    }, []);
+    const cachedUsers = localStorage.getItem('users');
+    if (cachedUsers) {
+        dispatch(setUsers(JSON.parse(cachedUsers)));
+    } else {
+        fetchUsers();
+    }
+}, []);
+
+
+  
 
     const fetchUsers = async () => {
-        dispatch(setLoading(true));
-        try {
-            const response = await fetch('https://jsonplaceholder.typicode.com/users');
-            const data = await response.json();
-            dispatch(setUsers(data));
-        } catch (err) {
-            dispatch(setError(err.message));
-        } finally {
-            dispatch(setLoading(false));
-        }
-    };
+    dispatch(setLoading(true));
+    try {
+        const response = await fetch('https://jsonplaceholder.typicode.com/users');
+        const data = await response.json();
+        dispatch(setUsers(data));
+        localStorage.setItem('users', JSON.stringify(data)); 
+    } catch (err) {
+        dispatch(setError(err.message));
+    } finally {
+        dispatch(setLoading(false));
+    }
+};
+
 
     const handleDelete = (id) => {
         if (window.confirm('Are you sure you want to delete this user?')) {
